@@ -1,0 +1,11 @@
+version: '3'
+services:
+  ui:
+    build:
+      context: ./react-ticketapp
+    ports:
+      - "3000:3000"
+    stdin_open: true     
+    volumes:
+      - ./react-ticketapp:/usr/app
+ 
