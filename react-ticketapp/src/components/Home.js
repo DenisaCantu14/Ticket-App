@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import img from "../images/bus-ticket.gif";
+import "../CSS/Home.css";
 
 function Home(props) {
   const [options, setOptions] = useState([]);
@@ -27,11 +29,11 @@ function Home(props) {
   function formIsValid() {
     const _errors = {};
 
-    if (!search.date) _errors.date = "Date is required";
-    if (!search.startLocation) _errors.startLocation = "Location is required";
-    if (!search.destination) _errors.destination = "Location is required";
 
+    if (!search.startLocation) _errors.startLocation = "required";
+    if (!search.destination) _errors.endLocation = "required";
     setErrors(_errors);
+    console.log(_errors);
 
     return Object.keys(_errors).length === 0;
   }
@@ -47,39 +49,51 @@ function Home(props) {
 
   return (
     <>
-      <h1>Home</h1>
-      <form onSubmit={handleSubmit}>
-        <label>From</label>
-        <Select
-          styles={{
-            container: (base) => ({
-              ...base,
-              padding: 5,
-              width: 200,
-            }),
-          }}
-          onChange={(e) => setSearch({ ...search, startLocation: e.value })}
-          options={options}
-        />
-        <Select
-          styles={{
-            container: (base) => ({
-              ...base,
-              padding: 5,
-              width: 200,
-            }),
-          }}
-          onChange={(e) => setSearch({ ...search, destination: e.value })}
-          options={options}
-        />
+      <h1>Tickets</h1>
+      <div className="home-container">
+        <form onSubmit={handleSubmit}>
+          <div className="select-container">
+            <Select
+              styles={{
+                container: (base) => ({
+                  ...base,
+                  padding: 5,
+                  width: 200,
+                }),
+              }}
+              onChange={(e) => setSearch({ ...search, startLocation: e.value })}
+              options={options}
+              placeholder={errors.startLocation === undefined ?"From" : "Required"}
+              className ={errors.startLocation  + " select"}
+            />
+           
+            <Select
+              styles={{
+                container: (base) => ({
+                  ...base,
+                  padding: 5,
+                  width: 200,
+                }),
+              }}
+              onChange={(e) => setSearch({ ...search, destination: e.value })}
+              options={options}
+              placeholder={errors.endLocation === undefined ?"To" : "Required"}
+              className ={"select " + errors.endLocation }
+            />
 
-        <DatePicker
-          selected={search.date}
-          minDate={new Date()}
-          onChange={(e) => setSearch({ ...search, date: e })}
-        />
-        <button type="submit" className="btn btn-primary">Search</button>
-      </form>
+          </div>
+          <DatePicker
+            selected={search.date}
+            minDate={new Date()}
+            onChange={(e) => setSearch({ ...search, date: e })}
+          />
+          <br></br>
+          <button type="submit" className="btn btn-primary">
+            Search
+          </button>
+        </form>
+        <img src={img} alt="bus"></img>
+      </div>
     </>
   );
 }
