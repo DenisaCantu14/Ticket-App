@@ -1,0 +1,47 @@
+img {
+  width: 30%;
+  height: 440px;
+}
+.home-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  position: relative;
+}
+
+.select-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.react-datepicker__input-container > input {
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid #24ade3;
+  width: 300px;
+  margin: 20px 0 40px;
+}
+
+*:focus {
+  outline: none;
+}
+form {
+  margin: 130px 18px;
+}
+h1 {
+  color: #24ade3;
+  margin-top: 20px!important;
+}
+.required {
+  border-color: rgb(224, 104, 104) !important;
+}
+.css-yk16xz-control {
+  border-style: unset !important;
+}
+.select {
+  border: 2px solid #cbccce;
+  margin-left: 10px;
+  border-radius: 5px;
+}

@@ -1,0 +1,46 @@
+ul.unstyled {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0px;
+  padding-left: 40px;
+  overflow: hidden;
+  background-image: linear-gradient(to bottom right, #2aa7f0, #0684eb);
+}
+
+nav li {
+  float: left;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+nav li a:hover {
+  background-color: #1678e9;
+  color: white;
+  text-decoration: none;
+}
+
+nav .log {
+  margin-top: 13px;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+.log:hover {
+  color: #0c3b70;
+}
+.log-button {
+  float: right;
+  margin-right: 35px;
+}
